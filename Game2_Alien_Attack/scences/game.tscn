@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://e6r1283jfdkw"]
+[gd_scene load_steps=6 format=3 uid="uid://e6r1283jfdkw"]
 
 [ext_resource type="Texture2D" uid="uid://cvuskt1ha7lvv" path="res://assets/textures/bg.png" id="1_ux112"]
 [ext_resource type="PackedScene" uid="uid://btqgcvc0bmy5a" path="res://scences/player.tscn" id="2_4d12s"]
 [ext_resource type="PackedScene" uid="uid://djfel6sve34ag" path="res://scences/enemy.tscn" id="3_cu875"]
+[ext_resource type="PackedScene" uid="uid://bgknpqafmkvup" path="res://scences/enemy_spawner.tscn" id="3_s652r"]
+[ext_resource type="PackedScene" uid="uid://nueltceiskxd" path="res://scences/rocket.tscn" id="5_587wr"]
 
 [node name="Game" type="Node2D"]
 
@@ -16,5 +18,10 @@ stretch_mode = 1
 position = Vector2(111, 156)
 scale = Vector2(0.377, 0.5)
 
+[node name="EnemySpawner" parent="." instance=ExtResource("3_s652r")]
+
 [node name="Enemy" parent="." instance=ExtResource("3_cu875")]
-position = Vector2(1129, 170)
+position = Vector2(880, 176)
+
+[node name="Rocket" parent="." instance=ExtResource("5_587wr")]
+position = Vector2(424, 162)

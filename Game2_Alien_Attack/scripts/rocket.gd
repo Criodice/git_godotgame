@@ -18,3 +18,9 @@ func _on_screen_exited():
 	#$Rocket.free() # Replace with function body.
 	#print("rocket exited screne")
 	queue_free() ;
+
+
+func _on_area_entered(area):
+	#print(area.name)
+	queue_free()
+	area.die()
