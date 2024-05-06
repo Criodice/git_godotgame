@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://e6r1283jfdkw"]
+
+[ext_resource type="Texture2D" uid="uid://cvuskt1ha7lvv" path="res://assets/textures/bg.png" id="1_ux112"]
+[ext_resource type="PackedScene" uid="uid://btqgcvc0bmy5a" path="res://scences/player.tscn" id="2_4d12s"]
+[ext_resource type="PackedScene" uid="uid://djfel6sve34ag" path="res://scences/enemy.tscn" id="3_cu875"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 722.0
+texture = ExtResource("1_ux112")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("2_4d12s")]
+position = Vector2(111, 156)
+scale = Vector2(0.377, 0.5)
+
+[node name="Enemy" parent="." instance=ExtResource("3_cu875")]
+position = Vector2(1129, 170)

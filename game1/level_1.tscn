@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://cukmwql723fi7"]
+
+[ext_resource type="Texture2D" uid="uid://j27fcug0y733" path="res://purple.png" id="1_kj2ik"]
+[ext_resource type="Script" path="res://level.gd" id="1_yp8ae"]
+[ext_resource type="PackedScene" uid="uid://de3jkhpfcck6q" path="res://player.tscn" id="2_fpo2u"]
+[ext_resource type="PackedScene" uid="uid://yk50r2ksvo5g" path="res://maze.tscn" id="4_txs0b"]
+[ext_resource type="Script" path="res://maze.gd" id="5_dduqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8om0y"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_yp8ae")
+
+[node name="Graphics" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kj2ik")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("2_fpo2u")]
+position = Vector2(521, 281)
+
+[node name="Maze" parent="." instance=ExtResource("4_txs0b")]
+z_index = -50
+position = Vector2(528, 396)
+script = ExtResource("5_dduqt")
+
+[node name="StartLabel" type="Label" parent="."]
+offset_left = 387.0
+offset_top = 233.0
+offset_right = 495.0
+offset_bottom = 279.0
+theme_override_font_sizes/font_size = 32
+text = "START"
+
+[node name="EndLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1114.0
+offset_top = 1.0
+offset_right = 1212.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "END"
+
+[node name="Tutorial" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 154.0
+offset_right = 272.0
+offset_bottom = 231.0
+theme_override_font_sizes/font_size = 32
+text = "Rules:
+-Go from the start to the end"
+label_settings = SubResource("LabelSettings_8om0y")
+
+[connection signal="body_entered" from="Maze" to="." method="_on_maze_body_entered"]
+[connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
