@@ -5,7 +5,10 @@ var speed = 300
 
 var rocket_scene = preload("res://scences/rocket.tscn");
 
+signal took_damage 
+
 @onready var rocket_container =$RocketContainer #get_node("RocketContainer")
+@onready var  rocket_shoot_sound = $RocketShootSound
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
@@ -52,3 +55,12 @@ func shoot():
 	rocket_container.add_child(rocket_instance);
 	rocket_instance.global_position  =  global_position ;
 	rocket_instance.global_position.x +=50 ;
+	#shoot_sound
+	rocket_shoot_sound.play()
+
+func take_damage():
+	print("damage");
+	emit_signal("took_damage")
+
+func die():
+	queue_free()

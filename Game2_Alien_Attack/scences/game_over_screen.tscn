@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://c53dtrpxr1w10"]
+
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_s5nh8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wootn"]
+bg_color = Color(0.980392, 0.0823529, 0.152941, 0.345098)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwxjr"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_lff22"]
+font_size = 32
+font_color = Color(0, 1, 1, 1)
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5nh8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -190.5
+offset_right = 330.0
+offset_bottom = 190.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wootn")
+
+[node name="GameOVer" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 47.5
+offset_right = 450.0
+offset_bottom = 156.5
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_lwxjr")
+
+[node name="GAMESCORE" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 129.5
+offset_right = 387.0
+offset_bottom = 174.5
+text = "SCORE:9999"
+label_settings = SubResource("LabelSettings_lff22")
+
+[node name="RetryButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 204.5
+offset_right = 359.0
+offset_bottom = 262.5
+text = "RETRY"
+
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
