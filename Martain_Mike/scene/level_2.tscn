@@ -1,0 +1,49 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4i3eck7wng8o"]
+
+[ext_resource type="PackedScene" uid="uid://cy05kbbns7y1m" path="res://scene/player.tscn" id="1_aw3it"]
+[ext_resource type="Script" path="res://script/Level.gd" id="1_icuv2"]
+[ext_resource type="PackedScene" uid="uid://bx12tor8s2trj" path="res://scene/level_3.tscn" id="2_4xuc5"]
+[ext_resource type="PackedScene" uid="uid://b1aqgksywtri7" path="res://scene/bg.tscn" id="3_nkvar"]
+[ext_resource type="Texture2D" uid="uid://ctbcwt2mavy4d" path="res://assets/textures/bg/Green.png" id="4_6vo7y"]
+[ext_resource type="PackedScene" uid="uid://dtsb3gkwmhkju" path="res://scene/tile_map.tscn" id="4_vxq4x"]
+[ext_resource type="PackedScene" uid="uid://c8njy6ehrw4kx" path="res://scene/start.tscn" id="5_xoh1m"]
+[ext_resource type="PackedScene" uid="uid://cmq7j8we8nib6" path="res://scene/saw.tscn" id="6_pv8ux"]
+[ext_resource type="PackedScene" uid="uid://bkbj8xf1qtbow" path="res://scene/exit.tscn" id="7_idnu7"]
+[ext_resource type="PackedScene" uid="uid://c08iojcya0fer" path="res://scene/ui_layer.tscn" id="9_f1tvl"]
+[ext_resource type="Script" path="res://script/Deathzone.gd" id="10_5gq32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atbq1"]
+size = Vector2(2336, 32.5)
+
+[node name="Level_2" type="Node2D"]
+script = ExtResource("1_icuv2")
+next_level = ExtResource("2_4xuc5")
+
+[node name="BG" parent="." instance=ExtResource("3_nkvar")]
+bg_texture = ExtResource("4_6vo7y")
+
+[node name="TileMap" parent="." instance=ExtResource("4_vxq4x")]
+
+[node name="Start" parent="." instance=ExtResource("5_xoh1m")]
+position = Vector2(180, 431)
+
+[node name="Saw" parent="." instance=ExtResource("6_pv8ux")]
+position = Vector2(427, 427)
+
+[node name="Exit" parent="." instance=ExtResource("7_idnu7")]
+position = Vector2(329, 432)
+
+[node name="Player" parent="." instance=ExtResource("1_aw3it")]
+position = Vector2(227, 195)
+
+[node name="UILayer" parent="." instance=ExtResource("9_f1tvl")]
+
+[node name="Deathzone" type="Area2D" parent="."]
+position = Vector2(30, 590)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("10_5gq32")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(548, 755)
+shape = SubResource("RectangleShape2D_atbq1")

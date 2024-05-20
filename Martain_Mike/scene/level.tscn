@@ -1,28 +1,34 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg43hw86y7ft2"]
+[gd_scene load_steps=17 format=3 uid="uid://dg43hw86y7ft2"]
 
 [ext_resource type="Script" path="res://script/Level.gd" id="1_jliir"]
+[ext_resource type="PackedScene" uid="uid://c4i3eck7wng8o" path="res://scene/level_2.tscn" id="2_54tub"]
 [ext_resource type="PackedScene" uid="uid://cy05kbbns7y1m" path="res://scene/player.tscn" id="2_ypn3k"]
 [ext_resource type="Texture2D" uid="uid://br3wqedol4iyb" path="res://assets/textures/other/Spiked Ball.png" id="3_u5ygj"]
+[ext_resource type="PackedScene" uid="uid://c08iojcya0fer" path="res://scene/ui_layer.tscn" id="4_7ouot"]
 [ext_resource type="Script" path="res://script/Deathzone.gd" id="4_ymgso"]
 [ext_resource type="PackedScene" uid="uid://chao10hwtdhkg" path="res://scene/jump_pad.tscn" id="5_tapnj"]
 [ext_resource type="PackedScene" uid="uid://cmq7j8we8nib6" path="res://scene/saw.tscn" id="6_j6gce"]
 [ext_resource type="PackedScene" uid="uid://bjm4p3a0c3iah" path="res://scene/spike_ball.tscn" id="7_8ccgf"]
+[ext_resource type="PackedScene" uid="uid://dtsb3gkwmhkju" path="res://scene/tile_map.tscn" id="8_0qe7k"]
+[ext_resource type="PackedScene" uid="uid://b1aqgksywtri7" path="res://scene/bg.tscn" id="9_i37wf"]
+[ext_resource type="PackedScene" uid="uid://c8njy6ehrw4kx" path="res://scene/start.tscn" id="10_ax3pa"]
+[ext_resource type="PackedScene" uid="uid://bkbj8xf1qtbow" path="res://scene/exit.tscn" id="11_788hc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l0eim"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g227l"]
-size = Vector2(750, 20)
+size = Vector2(768, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6x31"]
 size = Vector2(2336, 32.5)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_jliir")
+next_level = ExtResource("2_54tub")
 
-[node name="Player" parent="." instance=ExtResource("2_ypn3k")]
-light_mask = 2
-visibility_layer = 5
-position = Vector2(133, 260)
+[node name="BG" parent="." instance=ExtResource("9_i37wf")]
+
+[node name="UILayer" parent="." instance=ExtResource("4_7ouot")]
 
 [node name="Ground" type="StaticBody2D" parent="."]
 light_mask = 7
@@ -30,12 +36,12 @@ visibility_layer = 7
 physics_material_override = SubResource("PhysicsMaterial_l0eim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(375, 451)
+position = Vector2(368, 471)
 shape = SubResource("RectangleShape2D_g227l")
 
 [node name="SpikedBall" type="Sprite2D" parent="Ground"]
 modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
-position = Vector2(374, 450)
+position = Vector2(370, 468)
 scale = Vector2(26.7143, 0.714285)
 texture = ExtResource("3_u5ygj")
 
@@ -45,16 +51,13 @@ collision_mask = 2
 script = ExtResource("4_ymgso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
-position = Vector2(548, 755)
+position = Vector2(560, 658)
 shape = SubResource("RectangleShape2D_j6x31")
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(589, 320)
 
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("5_tapnj")]
-position = Vector2(298, 426)
+position = Vector2(299, 435)
 
 [node name="Traps" type="Node2D" parent="."]
 
@@ -64,6 +67,18 @@ position = Vector2(413, 416)
 [node name="SpikeBall" parent="Traps" instance=ExtResource("7_8ccgf")]
 position = Vector2(16, 411)
 
+[node name="TileMap" parent="." instance=ExtResource("8_0qe7k")]
+layer_0/tile_data = PackedInt32Array(1900551, 458752, 1, 1966087, 458752, 2, 1900552, 458752, 1, 1966088, 458752, 2, 1900553, 458752, 1, 1966089, 458752, 2, 1900554, 458752, 1, 1966090, 458752, 2, 1900555, 458752, 1, 1966091, 458752, 2, 1900556, 458752, 1, 1966092, 458752, 2, 1900557, 458752, 1, 1900558, 458752, 1, 1966094, 458752, 2, 1900559, 458752, 1, 1966095, 458752, 2, 1900560, 458752, 1, 1966096, 458752, 2, 1900561, 458752, 1, 1966097, 458752, 2, 1900562, 458752, 1, 1966098, 458752, 2, 1900563, 458752, 1, 1966099, 458752, 2, 1900564, 458752, 1, 1966100, 458752, 2, 1900565, 458752, 1, 1966101, 458752, 2, 1900566, 458752, 1, 1966102, 458752, 2, 1900567, 458752, 1, 1966103, 458752, 2, 1900568, 458752, 1, 1966104, 458752, 2, 1900569, 458752, 1, 1966105, 458752, 2, 1900570, 458752, 1, 1966106, 458752, 2, 1900571, 458752, 1, 1966107, 458752, 2, 1900572, 458752, 1, 1966108, 458752, 2, 1900573, 458752, 1, 1966109, 458752, 2, 1900574, 458752, 1, 1966110, 458752, 2, 1900575, 458752, 1, 1966111, 458752, 2, 1900576, 458752, 1, 1966112, 458752, 2, 1900577, 458752, 1, 1966113, 458752, 2, 1900578, 458752, 1, 1966114, 458752, 2, 1900579, 458752, 1, 1966115, 458752, 2, 1900580, 458752, 1, 1966116, 458752, 2, 1900581, 458752, 1, 1966117, 458752, 2, 1900582, 458752, 1, 1966118, 458752, 2, 1900583, 458752, 1, 1966119, 458752, 2, 1900584, 458752, 1, 1966120, 458752, 2, 1900585, 458752, 1, 1966121, 458752, 2, 1900586, 458752, 1, 1966122, 458752, 2, 1900587, 458752, 1, 1966123, 458752, 2, 1900588, 458752, 1, 1966124, 458752, 2, 1900589, 458752, 1, 1966125, 458752, 2, 1900590, 458752, 1, 1966126, 458752, 2, 1966093, 458752, 2, 1900543, 458752, 0, 1966079, 458752, 1, 2031615, 458752, 2, 1835008, 458752, 0, 1900544, 458752, 1, 1966080, 458752, 2, 1835009, 458752, 0, 1900545, 458752, 1, 1966081, 458752, 2, 1835010, 458752, 0, 1900546, 458752, 1, 1966082, 458752, 2, 1835011, 458752, 0, 1900547, 458752, 1, 1966083, 458752, 2, 1835012, 458752, 0, 1900548, 458752, 1, 1966084, 458752, 2, 1835013, 458752, 0, 1900549, 458752, 1, 1966085, 458752, 2, 1835014, 458752, 0, 1900550, 458752, 1, 1966086, 458752, 2, 1835015, 458752, 0, 1835016, 458752, 0, 1835017, 458752, 0, 1835018, 458752, 0, 1835019, 458752, 0, 1835020, 458752, 0, 1835021, 458752, 0, 1835022, 458752, 0, 1835023, 458752, 0, 1835024, 458752, 0, 1835025, 458752, 0, 1835026, 458752, 0, 1835027, 458752, 0, 1835028, 458752, 0, 1835029, 458752, 0, 1835030, 458752, 0, 1835031, 458752, 0, 1835032, 458752, 0, 1835033, 458752, 0, 1835034, 458752, 0, 1835035, 458752, 0, 1835036, 458752, 0, 1835037, 458752, 0, 1835038, 458752, 0, 1835039, 458752, 0, 1835040, 458752, 0, 1835041, 458752, 0, 1835042, 458752, 0, 1835043, 458752, 0, 1835044, 458752, 0, 1835045, 458752, 0, 1835046, 458752, 0, 1835047, 458752, 0, 1835048, 458752, 0, 1835049, 458752, 0, 1835050, 458752, 0, 1835051, 458752, 0, 1835052, 458752, 0, 1835053, 458752, 0, 1835054, 458752, 0)
+
+[node name="Start" parent="." instance=ExtResource("10_ax3pa")]
+position = Vector2(182, 417)
+
+[node name="Exit" parent="." instance=ExtResource("11_788hc")]
+position = Vector2(346, 416)
+
+[node name="Player" parent="." instance=ExtResource("2_ypn3k")]
+light_mask = 2
+visibility_layer = 5
+position = Vector2(133, 260)
+
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
-[connection signal="touched_player" from="Traps/Saw" to="." method="_on_trap_touched_player"]
-[connection signal="touched_player" from="Traps/SpikeBall" to="." method="_on_trap_touched_player"]
