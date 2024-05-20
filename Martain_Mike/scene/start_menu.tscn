@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://rl5rg4o8vayk"]
+
+[ext_resource type="FontFile" uid="uid://bxvvhwfek1icw" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_27xih"]
+[ext_resource type="Script" path="res://script/start_menu.gd" id="1_aepne"]
+[ext_resource type="PackedScene" uid="uid://b1aqgksywtri7" path="res://scene/bg.tscn" id="2_n30ha"]
+[ext_resource type="Texture2D" uid="uid://bvh1uaa2wqrlc" path="res://assets/textures/bg/Pink.png" id="3_7ssub"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5dyqf"]
+font = ExtResource("1_27xih")
+font_size = 48
+font_color = Color(1, 0.129412, 1, 1)
+outline_size = 10
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aepne")
+
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 501.0
+offset_top = 265.0
+offset_right = -451.0
+offset_bottom = -295.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_27xih")
+text = "Start"
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 385.0
+offset_right = 636.0
+offset_bottom = 417.0
+theme_override_fonts/font = ExtResource("1_27xih")
+text = "quit"
+
+[node name="BG" parent="." instance=ExtResource("2_n30ha")]
+bg_texture = ExtResource("3_7ssub")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 87.0
+offset_right = 986.0
+offset_bottom = 168.0
+text = "MENU"
+label_settings = SubResource("LabelSettings_5dyqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

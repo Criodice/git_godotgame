@@ -10,6 +10,7 @@ class_name Player
 
 @onready var animated_sprite =$AnimatedSprite2D
 
+var active = true
 func _physics_process(delta):
 	# Add the gravity.
 	if is_on_floor() ==false:
