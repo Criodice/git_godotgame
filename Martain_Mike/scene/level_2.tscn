@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=13 format=3 uid="uid://c4i3eck7wng8o"]
 
 [ext_resource type="PackedScene" uid="uid://cy05kbbns7y1m" path="res://scene/player.tscn" id="1_aw3it"]
@@ -47,3 +48,14 @@ script = ExtResource("10_5gq32")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2(548, 755)
 shape = SubResource("RectangleShape2D_atbq1")
+=======
+[gd_scene load_steps=3 format=3 uid="uid://c4i3eck7wng8o"]
+
+[ext_resource type="PackedScene" uid="uid://cy05kbbns7y1m" path="res://scene/player.tscn" id="1_aw3it"]
+[ext_resource type="Script" path="res://script/Level.gd" id="1_icuv2"]
+
+[node name="Level_2" type="Node2D"]
+script = ExtResource("1_icuv2")
+
+[node name="Player" parent="." instance=ExtResource("1_aw3it")]
+>>>>>>> 4f587123265909dec252e969f649e999fb814668

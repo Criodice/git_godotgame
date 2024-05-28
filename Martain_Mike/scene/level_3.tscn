@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=11 format=3 uid="uid://bx12tor8s2trj"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://bx12tor8s2trj"]
+>>>>>>> 4f587123265909dec252e969f649e999fb814668
 
 [ext_resource type="PackedScene" uid="uid://c8njy6ehrw4kx" path="res://scene/start.tscn" id="1_elxgi"]
 [ext_resource type="Script" path="res://script/Level.gd" id="1_g1vuc"]
@@ -6,12 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://bkbj8xf1qtbow" path="res://scene/exit.tscn" id="3_jaomm"]
 [ext_resource type="PackedScene" uid="uid://b1aqgksywtri7" path="res://scene/bg.tscn" id="4_6sbtw"]
 [ext_resource type="PackedScene" uid="uid://dtsb3gkwmhkju" path="res://scene/tile_map.tscn" id="5_rdib3"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bvh1uaa2wqrlc" path="res://assets/textures/bg/Pink.png" id="6_0vgvh"]
 [ext_resource type="PackedScene" uid="uid://c08iojcya0fer" path="res://scene/ui_layer.tscn" id="6_d5lc2"]
 [ext_resource type="Script" path="res://script/Deathzone.gd" id="8_j6ym3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hyji"]
 size = Vector2(2336, 32.5)
+=======
+[ext_resource type="PackedScene" uid="uid://c08iojcya0fer" path="res://scene/ui_layer.tscn" id="6_d5lc2"]
+>>>>>>> 4f587123265909dec252e969f649e999fb814668
 
 [node name="level_3" type="Node2D"]
 script = ExtResource("1_g1vuc")
@@ -27,11 +35,15 @@ position = Vector2(199, 367)
 position = Vector2(553, 432)
 
 [node name="BG" parent="." instance=ExtResource("4_6sbtw")]
+<<<<<<< HEAD
 bg_texture = ExtResource("6_0vgvh")
+=======
+>>>>>>> 4f587123265909dec252e969f649e999fb814668
 
 [node name="TileMap" parent="." instance=ExtResource("5_rdib3")]
 
 [node name="UILayer" parent="." instance=ExtResource("6_d5lc2")]
+<<<<<<< HEAD
 
 [node name="Deathzone" type="Area2D" parent="."]
 collision_layer = 4
@@ -41,3 +53,5 @@ script = ExtResource("8_j6ym3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2(548, 755)
 shape = SubResource("RectangleShape2D_4hyji")
+=======
+>>>>>>> 4f587123265909dec252e969f649e999fb814668
